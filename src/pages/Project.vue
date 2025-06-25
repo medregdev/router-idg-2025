@@ -12,7 +12,8 @@
 
             <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 <li v-for="(project, index) in projects" :key="index">
-                    <a href="#" class="block rounded-md border border-gray-300 p-4 shadow-sm sm:p-6">
+                    <router-link :to="`project/${project.name}`"
+                        class="block rounded-md border border-gray-300 p-4 shadow-sm sm:p-6">
                         <div class="sm:flex sm:justify-between sm:gap-4 lg:gap-6">
                             <div class="sm:order-last sm:shrink-0">
                                 <img alt=""
@@ -62,7 +63,7 @@
                                 <dd class="text-xs text-gray-700">12 minutes</dd>
                             </div>
                         </dl>
-                    </a>
+                    </router-link>
                 </li>
 
             </ul>
@@ -73,8 +74,12 @@
 import axios from 'axios';
 export default {
     async mounted() {
-        const response = await axios.get('https://api.github.com/users/KimangKhenng/repos?page=1&per_page=10')
-        // console.log(response.data)
+        const response = await axios.get('https://api.github.com/users/KimangKhenng/repos?page=1&per_page=10', {
+            headers: {
+                'Authorization': `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+            }
+        }
+        )
         this.projects = response.data;
     },
     data() {
