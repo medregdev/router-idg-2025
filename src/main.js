@@ -13,6 +13,8 @@ const routes = [
 ]
 
 const router = createRouter({
+    linkActiveClass: 'font-bold',
+    linkExactActiveClass: 'font-bold',
     history: createWebHistory(),
     routes
 })
