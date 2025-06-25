@@ -1,7 +1,7 @@
 <template>
-  <HyperHeader />
+  <HyperHeader v-if="$route.name != 'NotFound'" />
   <router-view />
-  <HyperFooter />
+  <HyperFooter v-if="$route.name != 'NotFound'" />
 </template>
 <script>
 import HyperHeader from './components/HyperHeader.vue';
