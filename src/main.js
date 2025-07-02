@@ -25,7 +25,8 @@ const i18n = createI18n({
             user: 'User',
             services: 'Services',
             projects: 'Projects',
-            setting: 'Setting'
+            setting: 'Setting',
+            productTitle: 'Welcome to our project',
         },
         khm: {
             hello: 'សួស្តី​ពិភពលោក',
@@ -34,7 +35,8 @@ const i18n = createI18n({
             user: 'អ្នកប្រើប្រាស់',
             services: 'សេវាកម្ម',
             projects: 'គម្រោង',
-            setting: 'ការកំណត់'
+            setting: 'ការកំណត់',
+            productTitle: 'សូមស្វាគមន៍មកកាន់គម្រោងរបស់យើង',
         }
     }
 }

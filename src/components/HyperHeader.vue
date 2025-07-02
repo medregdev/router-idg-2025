@@ -53,7 +53,7 @@
                 <div class="flex items-center gap-4">
                     <div v-if="$i18n.locale === 'en'" @click="changeLanguage('khm')"
                         class="hover:cursor-pointer bg-blue-500 rounded-3xl px-3 py-2 text-white hover:bg-blue-300">
-                        Khmer</div>
+                        ខ្មែរ</div>
                     <div v-else @click="changeLanguage('en')"
                         class="hover:cursor-pointer bg-blue-500 rounded-3xl px-3 py-2 text-white hover:bg-blue-300">
                         English</div>
