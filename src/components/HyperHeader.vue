@@ -20,11 +20,13 @@
                         </li>
 
                         <li>
-                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Careers </a>
+                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/register">
+                                Register </router-link>
                         </li>
 
                         <li>
-                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> History </a>
+                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/users"> User
+                            </router-link>
                         </li>
 
                         <li>
