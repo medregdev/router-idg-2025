@@ -15,37 +15,48 @@
                     <ul class="flex items-center gap-6 text-sm">
                         <li>
                             <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/about" exact>
-                                About
+                                {{ $t('about') }}
                             </router-link>
                         </li>
 
                         <li>
                             <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/register">
-                                Register </router-link>
-                        </li>
-
-                        <li>
-                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/users"> User
+                                {{ $t('register') }}
                             </router-link>
                         </li>
 
                         <li>
-                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> Services </a>
-                        </li>
-
-                        <li>
-                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/project"> Projects
+                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/users">
+                                {{ $t('user') }}
                             </router-link>
                         </li>
 
                         <li>
-                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/setting"> Setting
+                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#"> {{ $t('services') }}
+                            </a>
+                        </li>
+
+                        <li>
+                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/project">
+                                {{ $t('projects') }}
+                            </router-link>
+                        </li>
+
+                        <li>
+                            <router-link class="text-gray-500 transition hover:text-gray-500/75" to="/setting">
+                                {{ $t('setting') }}
                             </router-link>
                         </li>
                     </ul>
                 </nav>
 
                 <div class="flex items-center gap-4">
+                    <div v-if="$i18n.locale === 'en'" @click="changeLanguage('khm')"
+                        class="hover:cursor-pointer bg-blue-500 rounded-3xl px-3 py-2 text-white hover:bg-blue-300">
+                        Khmer</div>
+                    <div v-else @click="changeLanguage('en')"
+                        class="hover:cursor-pointer bg-blue-500 rounded-3xl px-3 py-2 text-white hover:bg-blue-300">
+                        English</div>
                     <div class="sm:flex sm:gap-4">
                         <a class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
                             href="#">
@@ -71,3 +82,12 @@
         </div>
     </header>
 </template>
+<script>
+export default {
+    methods: {
+        changeLanguage(lang) {
+            this.$i18n.locale = lang;
+        }
+    }
+}
+</script>
