@@ -1,7 +1,7 @@
 <template>
     <div
         class="max-w-6xl mx-auto mt-10 p-6 bg-gradient-to-br from-blue-50 via-white to-purple-50 rounded-2xl shadow-lg">
-        <h2 class="text-3xl font-bold mb-8 text-center text-purple-800">🎉 User Directory</h2>
+        <h2 class="text-3xl font-bold mb-8 text-center text-purple-800">🎓 User Directory</h2>
 
         <div v-if="loading" class="text-center text-gray-600">Loading users...</div>
         <div v-else-if="error" class="text-center text-red-600">Error: {{ error }}</div>
@@ -17,8 +17,13 @@
                         <p class="text-sm text-gray-500">{{ user.email }}</p>
                     </div>
                 </div>
-                <div class="text-sm text-gray-600">
-                    <span class="font-medium text-purple-700">Age:</span> {{ user.age }}
+                <div class="space-y-1 text-sm text-gray-700">
+                    <p><span class="font-medium text-purple-700">Age:</span> {{ user.age }}</p>
+                    <p><span class="font-medium text-purple-700">Major:</span> {{ user.major || 'N/A' }}</p>
+                    <p>
+                        <span class="font-medium text-purple-700">Salary:</span>
+                        {{ formatSalary(user.salary) }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -53,6 +58,10 @@ export default {
         generateAvatarUrl(name) {
             const encodedName = encodeURIComponent(name)
             return `https://api.dicebear.com/7.x/fun-emoji/svg?seed=${encodedName}`
+        },
+        formatSalary(salary) {
+            if (!salary || isNaN(salary)) return 'N/A'
+            return `$${parseFloat(salary).toLocaleString()}`
         }
     },
     mounted() {
